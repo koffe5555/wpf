@@ -1,0 +1,244 @@
+﻿<Window x:Class="GameInfoWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameInfoWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" MaxHeight="442" MaxWidth="792" MinHeight="442" MinWidth="792" Foreground="White">
+    <Window.Background>
+        <ImageBrush ImageSource="/bg.jpg" Opacity="0.7"/>
+    </Window.Background>
+    
+    
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="415*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="AddGame" Click="btn_ShowAddGame" Margin="10,10,707,360" Grid.RowSpan="2" Content="Add Game">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="black"/>
+                    <Setter Property="Opacity" Value="0.7"></Setter>
+                    <Setter Property="Foreground" Value="white"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3a0a16"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <GroupBox x:Name="AddHidden" Visibility="Hidden" Header="Add Game" Margin="228,151,416,61" Grid.Row="1" Background="black" Opacity="0.7">
+            <StackPanel Height="209">
+                <Label Content="Name" Foreground="white"/>
+                <TextBox x:Name="GameName" Foreground="white" Background="Black" Opacity="0.7"/>
+                <Label Content="Description" Foreground="white"/>
+                <TextBox x:Name="GameDesc" Foreground="white" Background="Black" Opacity="0.7"/>
+                <Label Content="Grade" Foreground="white"/>
+                <TextBox x:Name="GameGrade" Height="21" Foreground="white" Background="Black" Opacity="0.7"/>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="btn_AddHidden"  Visibility="Hidden"  Content="Add Game" HorizontalAlignment="Left" Margin="388,249,0,0" VerticalAlignment="Top" Click="btn_GameAdd" Height="30" Grid.Row="1" Width="82">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="black"/>
+                    <Setter Property="Opacity" Value="0.7"></Setter>
+                    <Setter Property="Foreground" Value="white"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3a0a16"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <GroupBox x:Name="ImageHidden" Visibility="Hidden" Margin="233,298,408,19" Background="black" Opacity="0.7" Grid.Row="1">
+            <StackPanel Height="73" Margin="0,0,-2,0">
+                <Label Content="Enter ID of the game" Background="black" Opacity="0.7" Foreground="White"></Label>
+                <TextBlock x:Name="GameIdImg_Text" Background="black" Opacity="0.7" Foreground="White"></TextBlock>
+                <TextBlock x:Name="GameImagePath_Text" Background="black" Opacity="0.7" Foreground="White"></TextBlock>
+            </StackPanel>
+        </GroupBox>
+
+        <Button x:Name="btn_SaveHidden" Visibility="Hidden" Content="Save Image" Click="btn_AddImage" Margin="388,197,289,163" Grid.Row="1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="black"/>
+                    <Setter Property="Opacity" Value="0.7"></Setter>
+                    <Setter Property="Foreground" Value="white"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3a0a16"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <GroupBox x:Name="UpdateHidden" Visibility="Hidden" Header="Update Game" Margin="233,52,396,114" Grid.Row="1" Background="black" Opacity="0.7" Foreground="White">
+            <StackPanel Height="195" Margin="0,0,-2,0">
+                <TextBlock x:Name="GameId_Text" Visibility="Hidden" Background="black" Opacity="0.7" Foreground="White" Width="22" HorizontalAlignment="Left" VerticalAlignment="Stretch"></TextBlock>
+                <Label Content="Name" Background="black" Opacity="0.7" Foreground="White"></Label>
+                <TextBox x:Name="GameName_Text" Background="black" Opacity="0.7" Foreground="White"></TextBox>
+                <Label Content="Description" Background="black" Opacity="0.7" Foreground="White"></Label>
+                <TextBox x:Name="GameDesc_Text" Background="black" Opacity="0.7" Foreground="White"></TextBox>
+                <Label Content="Grade" Background="black" Opacity="0.7" Foreground="White"></Label>
+                <TextBox x:Name="GameGrade_Text" Background="black" Opacity="0.7" Foreground="White"></TextBox>
+                <TextBox x:Name="GameImage_Text" Background="black" Opacity="0.7" Foreground="white" Visibility="Hidden"></TextBox>
+            </StackPanel>
+
+        </GroupBox>
+
+        <Button x:Name="btn_UpdateHidden" Visibility="Hidden" Content="Update Game" HorizontalAlignment="Left" Margin="409,172,0,0" VerticalAlignment="Top" Click="btn_GameUpdate" Height="29" Grid.Row="1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="black"/>
+                    <Setter Property="Opacity" Value="0.7"></Setter>
+                    <Setter Property="Foreground" Value="white"></Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#3a0a16"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <ListBox x:Name="ListBox"  MouseLeftButtonUp="ListBox_MouseClick" Margin="13,91,591,13" Grid.Row="1" Background="Black" Opacity="0.7" Foreground="White">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label x:Name="Sear_Label" Content="Search" Foreground="White" Margin="13,25,591,330" Grid.Row="1"/>
+        <TextBox x:Name="SearchGame_Text"  Margin="13,52,591,304" TextChanged="SearchGame_Text_TextChanged" Background="black" Opacity="0.7" Foreground="White" Grid.Row="1"/>
+
+        <StackPanel x:Name="StackPanelHidden" Margin="213,13,147,119" Grid.Row="1" Background="black" Opacity="0.7" Visibility="Hidden">
+            <Label Content="ID" FontWeight="Bold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"></Label>
+            <TextBlock x:Name="TextHolder_Id" Text="{Binding Id}" Width="400" HorizontalAlignment="Stretch"/>
+            <Label Content="Name" FontWeight="Bold" Foreground="White"></Label>
+            <TextBlock x:Name="TextHolder_Name" Text="{Binding Name}" Width="400" HorizontalAlignment="Stretch" Height="15"/>
+            <Label Content="Description" FontWeight="Bold" Foreground="White"></Label>
+            <TextBlock x:Name="TextHolder_Desc" Text="{Binding Description}" Width="400" HorizontalAlignment="Stretch"></TextBlock>
+            <Label Content="Grade" FontWeight="Bold" Foreground="White"></Label>
+            <TextBlock x:Name="TextHolder_Grade" Text="{Binding Grade}" Width="400" HorizontalAlignment="Stretch"></TextBlock>
+            <TextBlock x:Name="TextHolder_Img" Text="{Binding Image}" Visibility="Hidden"></TextBlock>
+            <Button x:Name="btn_Delete" Content="Delete Game" Height="23" Width="90" HorizontalAlignment="Right" Click="btn_Delete_Click" Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="black"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                        <Setter Property="Foreground" Value="white"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3a0a16"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btn_Update" Content="Update Game" Height="23" Width="90" Click="btn_Update_Click" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="black"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                        <Setter Property="Foreground" Value="white"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3a0a16"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btn_Image" Content="Add Image" Height="23" Width="90" Click="btn_Game_ImageAdd" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="black"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                        <Setter Property="Foreground" Value="white"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3a0a16"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+
+        <Image x:Name="GameImage" Source="{Binding image}" Margin="652,18,12,171" Grid.Row="1" Opacity="0.7"></Image>
+    </Grid>
+</Window>
